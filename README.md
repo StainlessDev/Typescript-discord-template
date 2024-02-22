@@ -1,2 +1,1 @@
-# Typescript-discord-template
- 
+# Typescript discord template
