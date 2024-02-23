@@ -8,7 +8,6 @@ export interface CmdInteraction extends CommandInteraction {
 export type CmdOptions = {
     name: string,
     description: string,
-    roles?: RoleResolvable[],
-    options?: any[], 
+    roles?: RoleResolvable[], 
     run: (client: BotClient, interaction: CmdInteraction, args: CommandInteractionOptionResolver) => any
 } & ChatInputApplicationCommandData
