@@ -1,8 +1,6 @@
 import { BotClient } from "@structures/client";
 import dotenv from "dotenv";
 dotenv.config();
-
-
 export const client = new BotClient();
 
 if (process.env.TOKEN === undefined) {
