@@ -2,12 +2,14 @@ import { ApplicationCommandDataResolvable, Client, REST, Routes, Collection, Act
 import { glob } from "glob";
 import cf from  "@configs/discord.json";
 import { CmdOptions } from "@structures/cmdoptions";
+import { ButtonOptions } from "@structures/buttonoptions";
 
 
 export class BotClient extends Client {
 
     commands: Collection<string, CmdOptions> = new Collection();
     static commands: any;
+    buttons: Collection<string, ButtonOptions> = new Collection();
 
 
     
@@ -37,7 +39,9 @@ export class BotClient extends Client {
     }
 
     async starting () {
-
+     /* 
+        Command and Event Handler are both recursive functions that will loop through all the files in the commands and events folder and import them.
+     */
         const cmds: ApplicationCommandDataResolvable[] = [];
         const commandFiles = await glob("./src/commands/**/*");
         commandFiles.forEach(async (file) => {
@@ -69,7 +73,7 @@ export class BotClient extends Client {
                     break;
             } 
 
-            // its putting the commands in the collection but not registering them in the discord api 
+
             
             this.loadCommands({commands: cmds});
             console.log(`Logged in as ${this.user?.tag}!`);

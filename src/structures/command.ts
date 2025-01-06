@@ -1,4 +1,3 @@
-import { CommandInteractionOptionResolver, RoleResolvable } from "discord.js"
 import { CmdOptions } from "@structures/cmdoptions";
 
 
